@@ -11,6 +11,6 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.30")
-    implementation("org.jetbrains.compose:compose-gradle-plugin:0.3.1")
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.32")
+    implementation("org.jetbrains.compose:compose-gradle-plugin:0.4.0-build188")
 }
