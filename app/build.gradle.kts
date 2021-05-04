@@ -1,5 +1,5 @@
 plugins {
-    id("dev.arunkumar.compositree.kotlin-application-conventions")
+    id("kotlin-application-conventions")
 }
 
 dependencies {

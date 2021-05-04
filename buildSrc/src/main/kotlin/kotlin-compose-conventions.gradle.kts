@@ -1,5 +1,8 @@
+import org.jetbrains.compose.compose
+
 plugins {
-    `kotlin-dsl`
+    id("kotlin-library-conventions")
+    id("org.jetbrains.compose")
 }
 
 repositories {
@@ -11,6 +14,6 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.30")
-    implementation("org.jetbrains.compose:compose-gradle-plugin:0.3.1")
+    implementation(compose.desktop.currentOs)
 }
+
