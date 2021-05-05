@@ -7,7 +7,7 @@ pluginManagement {
         }
     }
 }
-rootProject.name = "compositree"
+rootProject.name = "compose-dot"
 
 include("app")
 include("dot")

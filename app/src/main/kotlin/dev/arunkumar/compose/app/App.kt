@@ -1,4 +1,4 @@
-package dev.arunkumar.compositree.app
+package dev.arunkumar.compose.app
 
 import dev.arunkumar.compose.dot.Cluster
 import dev.arunkumar.compose.dot.DirectedGraph
