@@ -27,7 +27,7 @@ open class DotStatement(
                         separator = ", ",
                         prefix = " [",
                         postfix = "]"
-                    ) { (key, value) -> "$key=${value.quote()}" }
+                    ) { (key, value) -> "$key=${value.quote}" }
             )
         }
         writer.println()

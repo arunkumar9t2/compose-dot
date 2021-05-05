@@ -2,4 +2,4 @@ package dev.arunkumar.dot
 
 import java.util.regex.Matcher
 
-fun Any.quote() = '"' + toString().replace("\"".toRegex(), Matcher.quoteReplacement("\\\"")) + '"'
+val Any.quote get() = '"' + toString().replace("\"".toRegex(), Matcher.quoteReplacement("\\\"")) + '"'

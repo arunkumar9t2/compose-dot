@@ -17,4 +17,4 @@ open class DotEdge(
     open val leftNode: Any,
     open val rightNode: Any,
     private val edgeOp: EdgeOp = UNDIRECTED
-) : DotStatement(leftNode.quote() + edgeOp.op + rightNode.quote())
+) : DotStatement(leftNode.quote + edgeOp.op + rightNode.quote)

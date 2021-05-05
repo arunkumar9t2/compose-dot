@@ -1,3 +1,3 @@
 package dev.arunkumar.dot
 
-class DotNode(nodeName: Any) : DotStatement(nodeName.quote())
+class DotNode(nodeName: Any) : DotStatement(nodeName.quote)

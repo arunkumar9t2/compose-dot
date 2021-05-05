@@ -7,5 +7,5 @@ application {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3")
+    implementation(project(":compose-dot"))
 }

@@ -1,30 +1,21 @@
 package dev.arunkumar.compositree.app
 
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.Composition
-import androidx.compose.runtime.Recomposer
-import kotlinx.coroutines.Dispatchers
-
-fun BuildNode(
-    parent: Recomposer = Recomposer(Dispatchers.Main),
-    content: @Composable () -> Unit
-): Pair<Node, Composition> {
-    val applier = NodeApplier(Node())
-    val composition = Composition(
-        applier = applier,
-        parent = parent
-    ).apply { setContent(content) }
-    return applier.root to composition
-}
+import dev.arunkumar.compose.dot.Cluster
+import dev.arunkumar.compose.dot.DirectedGraph
 
 fun main() {
-    val (root, composition) = BuildNode {
-        Text("Hello") {
-            Text("Hi")
-            Text("How")
+    val (root, composition) = DirectedGraph("Hello") {
+        "A" {
+            "color" `=` "red"
         }
-        Text("I am") {
-            Text("Good")
+        "A" link "B" {
+            "color" `=` "blue"
+        }
+        Cluster("compilation") {
+            "main" link "main.c"
+            Cluster("output") {
+                "main" link "hello"
+            }
         }
     }
     print(root.toString())

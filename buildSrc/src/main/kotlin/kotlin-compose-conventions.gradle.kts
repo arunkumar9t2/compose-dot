@@ -15,5 +15,6 @@ repositories {
 
 dependencies {
     implementation(compose.runtime)
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3")
 }
 
