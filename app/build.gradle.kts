@@ -8,4 +8,5 @@ application {
 
 dependencies {
     implementation(project(":compose-dot"))
+    implementation("guru.nidi:graphviz-java:0.18.1")
 }

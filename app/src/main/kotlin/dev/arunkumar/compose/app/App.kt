@@ -2,9 +2,12 @@ package dev.arunkumar.compose.app
 
 import dev.arunkumar.compose.dot.Cluster
 import dev.arunkumar.compose.dot.DirectedGraph
+import java.io.File
 
 fun main() {
-    val (root, composition) = DirectedGraph("Hello") {
+    val output: DotOutput = DefaultDotOutput()
+
+    val (dotGraph, _) = DirectedGraph("Hello") {
         "A" {
             "color" `=` "red"
         }
@@ -18,6 +21,6 @@ fun main() {
             }
         }
     }
-    print(root.toString())
-    composition.dispose()
+
+    output.render(dotGraph, File("build/output.png"))
 }
