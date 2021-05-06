@@ -18,6 +18,13 @@ fun SubGraph(name: String, content: @Composable DotGraphScope.() -> Unit) {
 }
 
 @Composable
-fun Cluster(name: String, content: @Composable DotGraphScope.() -> Unit) {
-    SubGraph("cluster_$name".quote, content)
+fun Cluster(name: String, label: Boolean = true, content: @Composable DotGraphScope.() -> Unit) {
+    SubGraph("cluster_$name".quote) {
+        if (label) {
+            graphAttributes {
+                "label" `=` name
+            }
+        }
+        content()
+    }
 }
