@@ -21,6 +21,14 @@ inline class DotGraphScope(val dotGraph: DotGraph) {
         val dotEdge = DirectedDotEdge(this, target).also(dotGraph::add)
         return EdgeBuilder(dotEdge)
     }
+
+    inline fun graphAttributes(builder: DotStatement.() -> Unit) {
+        dotGraph.add(DotStatement("graph").apply(builder))
+    }
+
+    inline fun nodeAttributes(builder: DotStatement.() -> Unit) {
+        dotGraph.add(DotStatement("node").apply(builder))
+    }
 }
 
 @DotDslScope
