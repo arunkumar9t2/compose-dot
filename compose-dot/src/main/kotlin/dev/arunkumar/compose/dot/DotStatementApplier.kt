@@ -12,30 +12,30 @@ import dev.arunkumar.dot.Statement
  */
 internal class DotStatementApplier(rootDotGraph: DotGraph) : AbstractApplier<Statement>(rootDotGraph) {
 
-    override fun onClear() {
-        // We don't support clearing trees at the moment
-    }
+  override fun onClear() {
+    // We don't support clearing trees at the moment
+  }
 
-    override fun insertBottomUp(index: Int, instance: Statement) {
-        // We only implement top down
-    }
+  override fun insertBottomUp(index: Int, instance: Statement) {
+    // We only implement top down
+  }
 
-    override fun insertTopDown(index: Int, instance: Statement) = graphNode {
-        add(instance)
-    }
+  override fun insertTopDown(index: Int, instance: Statement) = graphNode {
+    add(instance)
+  }
 
-    override fun move(from: Int, to: Int, count: Int) {
-        // Mutable operations are not supported
-    }
+  override fun move(from: Int, to: Int, count: Int) {
+    // Mutable operations are not supported
+  }
 
-    override fun remove(index: Int, count: Int) {
-        // Mutable operations are not supported
-    }
+  override fun remove(index: Int, count: Int) {
+    // Mutable operations are not supported
+  }
 
-    /**
-     * Executes [action] if the [current] node is a [DotGraph] node
-     */
-    private fun graphNode(action: DotGraph.() -> Unit) {
-        (current as? DotGraph)?.let(action)
-    }
+  /**
+   * Executes [action] if the [current] node is a [DotGraph] node
+   */
+  private fun graphNode(action: DotGraph.() -> Unit) {
+    (current as? DotGraph)?.let(action)
+  }
 }

@@ -6,13 +6,13 @@ import guru.nidi.graphviz.engine.Graphviz
 import java.io.File
 
 interface DotOutput {
-    fun render(dotGraph: DotGraph, output: File)
+  fun render(dotGraph: DotGraph, output: File)
 }
 
 class DefaultDotOutput : DotOutput {
-    override fun render(dotGraph: DotGraph, output: File) {
-        Graphviz.fromString(dotGraph.toString())
-            .render(Format.PNG)
-            .toFile(output)
-    }
+  override fun render(dotGraph: DotGraph, output: File) {
+    Graphviz.fromString(dotGraph.toString())
+      .render(Format.PNG)
+      .toFile(output)
+  }
 }

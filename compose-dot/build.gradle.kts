@@ -1,7 +1,7 @@
 plugins {
-    id("kotlin-compose-conventions")
+  id("kotlin-compose-conventions")
 }
 
 dependencies {
-    api(project(":dot"))
+  api(project(":dot"))
 }

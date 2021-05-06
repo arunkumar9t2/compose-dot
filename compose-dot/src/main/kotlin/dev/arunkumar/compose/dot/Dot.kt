@@ -12,43 +12,43 @@ annotation class DotDslScope
 @DotDslScope
 inline class DotGraphScope(val dotGraph: DotGraph) {
 
-    inline operator fun String.invoke(nodeBuilder: DotNode.() -> Unit = {}): String {
-        dotGraph.add(DotNode(this).apply(nodeBuilder))
-        return this
-    }
+  inline operator fun String.invoke(nodeBuilder: DotNode.() -> Unit = {}): String {
+    dotGraph.add(DotNode(this).apply(nodeBuilder))
+    return this
+  }
 
-    infix fun String.link(target: String): EdgeBuilder {
-        val dotEdge = DirectedDotEdge(this, target).also(dotGraph::add)
-        return EdgeBuilder(dotEdge)
-    }
+  infix fun String.link(target: String): EdgeBuilder {
+    val dotEdge = DirectedDotEdge(this, target).also(dotGraph::add)
+    return EdgeBuilder(dotEdge)
+  }
 
-    inline fun graphAttributes(builder: DotStatement.() -> Unit) {
-        dotGraph.add(DotStatement("graph").apply(builder))
-    }
+  inline fun graphAttributes(builder: DotStatement.() -> Unit) {
+    dotGraph.add(DotStatement("graph").apply(builder))
+  }
 
-    inline fun nodeAttributes(builder: DotStatement.() -> Unit) {
-        dotGraph.add(DotStatement("node").apply(builder))
-    }
+  inline fun nodeAttributes(builder: DotStatement.() -> Unit) {
+    dotGraph.add(DotStatement("node").apply(builder))
+  }
 }
 
 @DotDslScope
 class EdgeBuilder(private val dotEdge: DotEdge) {
-    operator fun invoke(edgeBuilder: DotEdge.() -> Unit) {
-        dotEdge.apply(edgeBuilder)
-    }
+  operator fun invoke(edgeBuilder: DotEdge.() -> Unit) {
+    dotEdge.apply(edgeBuilder)
+  }
 }
 
 fun DirectedGraph(
-    name: String,
-    parent: Recomposer = Recomposer(Dispatchers.Main),
-    content: @Composable DotGraphScope.() -> Unit
+  name: String,
+  parent: Recomposer = Recomposer(Dispatchers.Main),
+  content: @Composable DotGraphScope.() -> Unit
 ): Pair<DotGraph, Composition> {
-    val dotGraph = DotGraph("digraph ${name.quote}")
+  val dotGraph = DotGraph("digraph ${name.quote}")
 
-    val applier = DotStatementApplier(rootDotGraph = dotGraph)
-    val composition = Composition(applier = applier, parent = parent)
-    composition.setContent {
-        content(DotGraphScope(dotGraph))
-    }
-    return applier.root as DotGraph to composition
+  val applier = DotStatementApplier(rootDotGraph = dotGraph)
+  val composition = Composition(applier = applier, parent = parent)
+  composition.setContent {
+    content(DotGraphScope(dotGraph))
+  }
+  return applier.root as DotGraph to composition
 }

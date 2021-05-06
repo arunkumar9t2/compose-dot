@@ -7,24 +7,24 @@ import dev.arunkumar.dot.quote
 
 @Composable
 fun SubGraph(name: String, content: @Composable DotGraphScope.() -> Unit) {
-    val dotGraph = DotGraph("subgraph $name")
-    ComposeNode<DotGraph, DotStatementApplier>(
-        factory = { dotGraph },
-        update = {},
-        content = {
-            content(DotGraphScope(dotGraph))
-        }
-    )
+  val dotGraph = DotGraph("subgraph $name")
+  ComposeNode<DotGraph, DotStatementApplier>(
+    factory = { dotGraph },
+    update = {},
+    content = {
+      content(DotGraphScope(dotGraph))
+    }
+  )
 }
 
 @Composable
 fun Cluster(name: String, label: Boolean = true, content: @Composable DotGraphScope.() -> Unit) {
-    SubGraph("cluster_$name".quote) {
-        if (label) {
-            graphAttributes {
-                "label" `=` name
-            }
-        }
-        content()
+  SubGraph("cluster_$name".quote) {
+    if (label) {
+      graphAttributes {
+        "label" `=` name
+      }
     }
+    content()
+  }
 }
