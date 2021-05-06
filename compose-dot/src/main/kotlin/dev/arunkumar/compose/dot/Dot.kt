@@ -45,7 +45,7 @@ fun DirectedGraph(
 ): Pair<DotGraph, Composition> {
     val dotGraph = DotGraph("digraph ${name.quote}")
 
-    val applier = DotStatementApplier(dotGraph)
+    val applier = DotStatementApplier(rootDotGraph = dotGraph)
     val composition = Composition(applier = applier, parent = parent)
     composition.setContent {
         content(DotGraphScope(dotGraph))

@@ -8,9 +8,9 @@ import dev.arunkumar.dot.Statement
 /**
  * Compose [Applier] implementation to manage tree of [DotGraph] instances
  *
- * @param dotGraph Root [DotGraph] instance that will serve as the root node.
+ * @param rootDotGraph Root [DotGraph] instance that will serve as the root node.
  */
-internal class DotStatementApplier(dotGraph: DotGraph) : AbstractApplier<Statement>(dotGraph) {
+internal class DotStatementApplier(rootDotGraph: DotGraph) : AbstractApplier<Statement>(rootDotGraph) {
 
     override fun onClear() {
         // We don't support clearing trees at the moment
