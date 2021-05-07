@@ -32,6 +32,6 @@ fun main() {
     "Item 2" link "Item 5"
     "Item 6" link "Item 3"
   }
-
+  println(dotGraph)
   output.render(dotGraph, File("build/output.png"))
 }
