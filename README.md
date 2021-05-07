@@ -3,6 +3,12 @@
 Experimental proof of concept to generate GraphViz dot code via Jetpack Compose's tree management.
 Valid `dot` file content can be generated simply by provided `@Composable` functions like `SubGraph` or `Cluster` etc.
 
+# Project Structure
+
+* `app` - Runnable sample
+* `dot` - Pure Kotlin constructs for representing Dot statements
+* `compose-dot` - Provides `@Composable` functions to construct dot statements using Compose Compiler Plugin.
+
 ## Usage
 
 For example, usage in Kotlin as follows.
