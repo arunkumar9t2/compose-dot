@@ -22,11 +22,11 @@ inline class DotGraphScope(val dotGraph: DotGraph) {
     return EdgeBuilder(dotEdge)
   }
 
-  inline fun graphAttributes(builder: DotStatement.() -> Unit) {
+  inline fun graph(builder: DotStatement.() -> Unit) {
     dotGraph.add(DotStatement("graph").apply(builder))
   }
 
-  inline fun nodeAttributes(builder: DotStatement.() -> Unit) {
+  inline fun node(builder: DotStatement.() -> Unit) {
     dotGraph.add(DotStatement("node").apply(builder))
   }
 }

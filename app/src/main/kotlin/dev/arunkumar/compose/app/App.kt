@@ -8,7 +8,7 @@ fun main() {
   val output: DotOutput = DefaultDotOutput()
 
   val (dotGraph, _) = DirectedGraph("Hello") {
-    nodeAttributes {
+    node {
       "shape" `=` "rectangle"
     }
     Cluster("Container A") {
